@@ -107,6 +107,40 @@
     color: #cbd5e1;
 }
 
+.location-input-wrapper {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.location-input-wrapper .plan-input {
+    flex: 1;
+}
+
+.btn-current-location {
+    background-color: white;
+    color: #0ba382;
+    border: 1px solid #0ba382;
+    padding: 0 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-current-location:hover:not(:disabled) {
+    background-color: #0ba382;
+    color: white;
+}
+
+.btn-current-location:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+}
+
 .btn-generate {
     width: 100%;
     background-color: #0ba382;

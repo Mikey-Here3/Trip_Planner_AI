@@ -176,7 +176,7 @@ function SignUp() {
 
                     <div className="social-login">
                         <button className="social-btn" style={{ width: '100%' }} onClick={() => handleGoogleLogin()}>
-                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width="20" height="20" /> Google
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="20" height="20" /> Google
                         </button>
                     </div>
                 </div>

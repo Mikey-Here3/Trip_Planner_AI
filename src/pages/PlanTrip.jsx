@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Sparkles, MapPin, DollarSign, Users, Calendar, Utensils,
     Building, Truck
@@ -13,6 +13,29 @@ function PlanTrip() {
     const { user } = useAuth();
     const { saveTrip } = useTripContext();
     const navigate = useNavigate();
+    const [startingLocation, setStartingLocation] = useState('');
+    const [isLoadingLocation, setIsLoadingLocation] = useState(false);
+
+    const getCurrentLocation = () => {
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser");
+            return;
+        }
+
+        setIsLoadingLocation(true);
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                setStartingLocation(`${latitude.toFixed(4)}, ${longitude.toFixed(4)}`);
+                setIsLoadingLocation(false);
+            },
+            (error) => {
+                console.error("Error fetching location:", error);
+                alert("Unable to retrieve your location");
+                setIsLoadingLocation(false);
+            }
+        );
+    };
 
     const handleSaveTrip = () => {
         saveTrip();
@@ -40,6 +63,27 @@ function PlanTrip() {
 
                 {/* Left Column: Form */}
                 <div className="plan-form-card">
+                    <div className="form-group-p">
+                        <label><MapPin size={16} className="icon-emerald" /> Starting Location</label>
+                        <div className="location-input-wrapper">
+                            <input
+                                type="text"
+                                placeholder="Your current location"
+                                className="plan-input"
+                                value={startingLocation}
+                                onChange={(e) => setStartingLocation(e.target.value)}
+                            />
+                            <button
+                                type="button"
+                                className="btn-current-location"
+                                onClick={getCurrentLocation}
+                                disabled={isLoadingLocation}
+                            >
+                                {isLoadingLocation ? "Locating..." : "Use Current Location"}
+                            </button>
+                        </div>
+                    </div>
+
                     <div className="form-group-p">
                         <label><MapPin size={16} className="icon-emerald" /> Destination</label>
                         <select className="plan-input" defaultValue="Select your destination" style={{ cursor: 'pointer' }}>
