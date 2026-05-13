@@ -13,14 +13,14 @@ import './EcoInsights.css';
 function EcoInsights() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const { user } = useAuth();
-    
+
     // Form State
     const [destination, setDestination] = useState('');
     const [travelers, setTravelers] = useState('');
     const [duration, setDuration] = useState('');
     const [transportType, setTransportType] = useState('');
     const [accommodationType, setAccommodationType] = useState('');
-    
+
     // Result State
     const [isCalculated, setIsCalculated] = useState(false);
 
@@ -36,46 +36,7 @@ function EcoInsights() {
         <div className="eco-page">
             <ProfileSidebar isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
 
-            {/* Top Navigation - Light Theme */}
-            <nav className="top-nav-light">
-                <div className="nav-brand">
-                    <div className="brand-logo-small bg-green-nav">
-                        <Mountain size={20} color="white" />
-                    </div>
-                    <div className="brand-text">
-                        <span className="brand-name text-dark">ExploreSmart</span>
-                        <span className="brand-sub text-green">AI Travel Planner</span>
-                    </div>
-                </div>
 
-                <div className="nav-links">
-                    <Link to="/home" className="nav-link text-dark">
-                        <HomeIcon size={16} /> Home
-                    </Link>
-                    <Link to="/plan" className="nav-link text-dark">
-                        <MapIcon size={16} /> Plan Trip
-                    </Link>
-                    <Link to="/explore" className="nav-link text-dark">
-                        <Compass size={16} /> Explore Trips
-                    </Link>
-                    <Link to="/eco" className="nav-link text-dark active">
-                        <Leaf size={16} /> Eco Insights
-                    </Link>
-                    <Link to="/weather" className="nav-link text-dark">
-                        <CloudSun size={16} /> Weather
-                    </Link>
-                </div>
-
-                <div className="nav-profile" onClick={() => setIsProfileOpen(true)} style={{ cursor: 'pointer' }}>
-                    <div className="profile-icon bg-green-nav">
-                        <User size={18} color="white" />
-                    </div>
-                    <div className="profile-text">
-                        <span className="profile-name text-dark">{user?.displayName || 'Guest'}</span>
-                        <span className="profile-action">View Profile</span>
-                    </div>
-                </div>
-            </nav>
 
             <main className="eco-main">
                 <div className="eco-header-centered">
@@ -199,17 +160,17 @@ function EcoInsights() {
                                 <div className="empty-icon-wrapper">
                                     <Leaf size={32} className="text-slate-400" />
                                 </div>
-                                
+
                                 <div className="empty-score-badge">
                                     <span className="empty-line"></span> N/A
                                 </div>
-                                
+
                                 <h2 className="empty-title">Your Eco-Score will appear here</h2>
                                 <p className="empty-subtitle">
                                     Fill in your trip details to calculate your environmental<br />
                                     impact and get personalized sustainability tips
                                 </p>
-                                
+
                                 <div className="empty-tip-box">
                                     <Info size={16} className="text-blue-500" />
                                     <p><strong>Tip:</strong> Choose eco-friendly transport and accommodations to improve your score!</p>
@@ -314,15 +275,15 @@ function EcoInsights() {
                                     </div>
                                     <ul className="tips-list">
                                         <li>
-                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14}/></div>
+                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14} /></div>
                                             Consider using train or shared transport to reduce carbon emissions.
                                         </li>
                                         <li>
-                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14}/></div>
+                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14} /></div>
                                             Use reusable water bottles and minimize plastic waste.
                                         </li>
                                         <li>
-                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14}/></div>
+                                            <div className="tip-check bg-emerald-100 text-emerald-600"><CheckCircle2 size={14} /></div>
                                             Support local businesses and artisans during your trip.
                                         </li>
                                     </ul>
@@ -352,7 +313,7 @@ function EcoInsights() {
                                                 <h4 className="text-orange-600">Transport Impact: 40/100</h4>
                                                 <p>Flights emit 10x more CO₂ than buses/trains. For domestic Pakistan trips, consider trains or buses to reduce emissions by up to 80%.</p>
                                                 <div className="tip-badge bg-emerald-50 text-emerald-700">
-                                                    <Leaf size={12}/> Tip: Train to Hunza saves 2.5 tons CO₂ vs flight
+                                                    <Leaf size={12} /> Tip: Train to Hunza saves 2.5 tons CO₂ vs flight
                                                 </div>
                                             </div>
                                         </div>
