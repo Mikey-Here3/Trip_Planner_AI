@@ -51,7 +51,9 @@ function PlanTrip() {
                         break;
                 }
                 
-                alert(message);
+                if (!startingLocation) {
+                    alert(message);
+                }
                 setIsLoadingLocation(false);
             },
             {
