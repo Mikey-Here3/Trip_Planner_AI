@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-    ArrowLeft, Save, Square, CheckSquare
+    ArrowLeft, Save, Square, CheckSquare, User, CloudSun, Compass, MapIcon
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
