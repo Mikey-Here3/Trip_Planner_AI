@@ -22,6 +22,12 @@ function PlanTrip() {
             return;
         }
 
+        // Check if the protocol is secure (HTTPS or localhost)
+        if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            alert("Geolocation requires a secure connection (HTTPS or localhost). Please check your connection.");
+            return;
+        }
+
         setIsLoadingLocation(true);
         navigator.geolocation.getCurrentPosition(
             (position) => {
