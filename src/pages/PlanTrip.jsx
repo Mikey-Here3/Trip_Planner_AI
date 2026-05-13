@@ -31,8 +31,27 @@ function PlanTrip() {
             },
             (error) => {
                 console.error("Error fetching location:", error);
-                alert("Unable to retrieve your location");
+                let message = "Unable to retrieve your location";
+                
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        message = "Location access denied. Please enable it in your browser settings.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        message = "Location information is unavailable.";
+                        break;
+                    case error.TIMEOUT:
+                        message = "The request to get user location timed out.";
+                        break;
+                }
+                
+                alert(message);
                 setIsLoadingLocation(false);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
             }
         );
     };
