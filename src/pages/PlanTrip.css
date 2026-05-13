@@ -363,4 +363,37 @@
     .plan-form-card {
         padding: 1.5rem;
     }
+
+    .location-input-wrapper {
+        flex-direction: column;
+    }
+
+    .btn-current-location {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-title {
+        font-size: 1.6rem;
+    }
+
+    .plan-layout {
+        padding: 0 1rem;
+    }
+
+    .plan-form-card {
+        padding: 1.25rem;
+    }
+
+    .location-input-wrapper {
+        flex-direction: column;
+    }
+
+    .btn-current-location {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
 }

@@ -38,8 +38,8 @@ function PlanTrip() {
             (error) => {
                 console.error("Error fetching location:", error);
                 let message = "Unable to retrieve your location";
-                
-                switch(error.code) {
+
+                switch (error.code) {
                     case error.PERMISSION_DENIED:
                         message = "Location access denied. Please enable it in your browser settings.";
                         break;
@@ -50,7 +50,7 @@ function PlanTrip() {
                         message = "The request to get user location timed out.";
                         break;
                 }
-                
+
                 if (!startingLocation) {
                     alert(message);
                 }
@@ -75,9 +75,7 @@ function PlanTrip() {
 
             {/* Main Header / Title Section */}
             <div className="plan-header">
-                <div className="badge-purple">
-                    <Sparkles size={14} /> AI-Powered Trip Planning
-                </div>
+
                 <h1 className="plan-title">Plan Your Perfect Pakistan Adventure</h1>
                 <p className="plan-subtitle">
                     Tell us your preferences and let our AI create a personalized travel plan<br />
